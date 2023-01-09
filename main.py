@@ -29,6 +29,10 @@ information = cursor.fetchall()
 
 print(cursor.execute("SELECT * FROM account_info").fetchall())
 
+
+# experiment for commit
+
+
 print(information)
 conn.commit()
 conn.close()
