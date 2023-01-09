@@ -32,6 +32,8 @@ print(cursor.execute("SELECT * FROM account_info").fetchall())
 
 # experiment for commit
 
+# changing things up.
+
 
 print(information)
 conn.commit()
