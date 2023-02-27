@@ -15,7 +15,7 @@ EMAIL_REGEX = r"[A-Za-z][A-Za-z0-9._%+-]*@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}"
 # https://stackoverflow.com/questions/58560831/email-regex-within-python
 # https://docs.python.org/3/library/re.html
 
-conn = sqlite3.connect('accounts.db')
+conn = sqlite3.connect('Databases/accounts.db')
 cursor = conn.cursor()
 
 email_regex = re.compile(EMAIL_REGEX)
@@ -59,6 +59,12 @@ def create_account(username: str, password: str, email: str, mm, dd, yyyy, displ
         raise EmailNotProper()
 
     print("promt")
+
+    # to add: password encryption
+    ...
+    # to add: check if username has been taken
+    # to add: insert everything into database
+
     
 conn.commit()
 conn.close()

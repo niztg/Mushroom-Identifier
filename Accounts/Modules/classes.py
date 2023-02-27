@@ -39,3 +39,6 @@ class Account:
             Account
         """
         ...
+        # to add: finish this
+
+    # to add: note functions (when the time comes)
