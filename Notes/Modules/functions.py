@@ -11,6 +11,8 @@ conn = sqlite3.connect('Databases/notes.db')
 cursor = conn.cursor()
 
 def create_note(author: Account, content: str):
-    ...
+    """
+    Create a note
+    """
     current_date = str(datetime.now())
-    cursor.execute("INSERT INTO notes VALUES (?, ?, ?)", author, content, current_date)
+    cursor.execute("INSERT INTO notes VALUES (?, ?) WHERE author=?", content, current_date, author)
