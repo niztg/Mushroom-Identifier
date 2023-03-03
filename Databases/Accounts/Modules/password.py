@@ -1,6 +1,10 @@
+'''
+Password encryption
+'''
+
 #from cryptography.fernet import Fernet
-import hashlib
 # from classes import Account
+import hashlib
 
 # written by: khalid
 

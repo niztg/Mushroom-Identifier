@@ -1,3 +1,8 @@
+'''
+account creation functions
+'''
+
+
 from datetime import datetime
 from password import Password
 from classes import Account
@@ -20,6 +25,7 @@ EMAIL_REGEX = r"[A-Za-z][A-Za-z0-9._%+-]*@[A-Za-z0-9.-]+\.[A-Za-z]{2,3}"
 email_regex = re.compile(EMAIL_REGEX)
 
 class AccountsDB:
+    #written by khalid (upto L38)
     # def __init__(self):
     #     self.conn = sqlite3.connect('accounts.db')
     #     self.cursor= self.conn.cursor()
@@ -46,7 +52,7 @@ class AccountsDB:
             None if valid
             Error if invalid
         """
-        #written by: niz
+        #written by: khalid
         if len(str(mm))!=2 or len(str(dd))!=2 or len(str(yyyy))!=4:
             raise InvalidDateOfBirth()
         else:
@@ -64,7 +70,7 @@ class AccountsDB:
         Returns:
             None
         """
-        # written by: khalid (l68-69, l78, l86-92), and niz (l75-77, l79-l87)
+        # written by: khalid (upto L77)
         conn = sqlite3.connect('accounts.db')
         cursor = conn.cursor()
 
@@ -75,14 +81,16 @@ class AccountsDB:
         if not (6 <= len(username) <= 20) or not (1 <= len(display_name) <= 15 if display_name else True):
             raise UsernameNotRightLength()
 
+        #written by niz (upto L86)
         date = AccountsDB.dob_creator(int(mm), int(dd), int(yyyy))
-
+       
         if not ((datetime.now() - date).days / 365) >= 13:
             raise NotOldEnough()
 
         if not (check := email_regex.search(email)) or not (check.end() - check.start() == len(email)):
             raise EmailNotProper()
 
+        #khalid (until L94)
         cursor.execute('INSERT INTO account_info (account_name, password, email, date_of_birth, display_name, id) VALUES (?, ?, ?, ?, ?, ?)',
                             (username, password_hashed, email, date, display_name, id))
         
