@@ -1,3 +1,8 @@
+'''
+account creation functions
+'''
+
+
 from datetime import datetime
 from password import Password
 from classes import Account

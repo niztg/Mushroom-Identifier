@@ -1,6 +1,6 @@
 '''
-NOT NEEDED ANYMORE
 Account info Table
+NOT NEEDED ANYMORE
 '''
 # written by: khalid
 
