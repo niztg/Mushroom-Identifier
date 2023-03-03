@@ -59,6 +59,6 @@ def create_account(username: str, password: str, email: str, mm, dd, yyyy, displ
         raise EmailNotProper()
 
     print("promt")
-    
+    cursor.execute("INSERT INTO account_info VALUES('username', 'display_name', 'mm', 'dd', 'yyyy', 'password', 'email')")
 conn.commit()
 conn.close()
