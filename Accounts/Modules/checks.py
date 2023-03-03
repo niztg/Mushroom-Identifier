@@ -1,3 +1,0 @@
-"""
-Checking functions go here
-"""
