@@ -5,8 +5,12 @@ Test file
 import sqlite3
 from datetime import datetime
 
-from Modules.functions import AccountsDB
-from Modules.classes import Account
+from functions import AccountsDB
+from classes import Account
+import table
 
 user1 = AccountsDB
-account1 = user1.create_account("theCowardlyDog", "luvMuriel123", "courage@ramses.com", "11", "12", "1999", "courage", 1)
+account1 = user1.create_account(None, 'theCowardlyDog', 'luvMuriel123', 'courage@ramses.com', 11, 12, 1999, 1, 'courage')
+
+
+#FIGURE OUT WHERE <account.db> IS WRITTEN INSTEAD OF <accounts.db> !!
