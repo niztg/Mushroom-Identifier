@@ -20,3 +20,7 @@ class UsernameNotRightLength(Exception):
 class EmailNotProper(Exception):
     def __str__(self):
         return "Please enter a valid email"
+
+class UsernameTaken(Exception):
+    def __str__(self):
+        return "This username has already been taken!"
