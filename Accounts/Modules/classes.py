@@ -1,9 +1,12 @@
 """
 Classes
 """
-from .exceptions import * 
+from exceptions import InvalidDateOfBirth
+from exceptions import NotOldEnough
+from exceptions import UsernameNotRightLength
+from exceptions import EmailNotProper
+from exceptions import UsernameTaken
 from datetime import datetime
-from Accounts import accounts
 import sqlite3
 
 __all__ = (
