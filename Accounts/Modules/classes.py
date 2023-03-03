@@ -1,8 +1,13 @@
 """
 Classes
 """
-from .exceptions import * 
+from exceptions import InvalidDateOfBirth
+from exceptions import NotOldEnough
+from exceptions import UsernameNotRightLength
+from exceptions import EmailNotProper
+from exceptions import UsernameTaken
 from datetime import datetime
+import sqlite3
 
 __all__ = (
     'Account'
@@ -18,15 +23,31 @@ class Account:
         email: str = The user's email ID
         dob: str = The user's date of birth
     """
-    def __init__(self, name: str, password: str, email: str, dob: datetime, display_name=None):
+    def __init__(self, account_name: str, password: str, email: str, dob: datetime, id: int, display_name=None):
         """
         Initializes the class
         """
-        self._name = name
+        # written by: niz
+        self._name = account_name
         self._display_name = display_name
         self._password = password
         self._email = email
         self._dob = dob
+        self._id = id
+
+    def retrieve_info(id: int):
+        # written by: khalid
+        conn = sqlite3.connect('accounts.db')
+        cursor = conn.cursor()
+
+        cursor.execute('SELECT account_name, password, email, dob, id, display_name FROM account_info WHERE id = ?', (id,))
+       
+        data = cursor.fetchone()
+        
+        account = Account(*data)
+
+        conn.close()
+        return account
 
     @classmethod
     def from_username_password(cls, username, password):
@@ -38,7 +59,6 @@ class Account:
         Returns:
             Account
         """
+        # written by: niz
         ...
         # to add: finish this
-
-    # to add: note functions (when the time comes)

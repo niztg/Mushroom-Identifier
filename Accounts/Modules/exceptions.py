@@ -1,3 +1,8 @@
+"""
+Module which contains custom exceptions
+"""
+# written by: niz
+
 __all__ = (
     'InvalidDateOfBirth',
     'NotOldEnough',
