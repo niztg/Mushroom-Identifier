@@ -43,6 +43,7 @@ class Account:
         
         conn.close()
         return cls(*data)
+    
 
     @classmethod
     def from_username_password(cls, username, password):
